@@ -15,6 +15,9 @@ import PropertyDetails from "./PropertyDetails";
 import Stack from "../Stack";
 import Slideshow from "../Slideshow";
 import style from "./PromotedListingCard.module.css";
+import { BsGeoAlt, BsGeoAltFill, BsPatchCheckFill } from "react-icons/bs";
+import { MdBalcony, MdFitnessCenter, MdPets, MdStream } from "react-icons/md";
+import { Chat } from "@mui/icons-material";
 
 // Mock data for listings and requests
 const mockedListing = {
@@ -40,19 +43,23 @@ const mockedRequest = {
   },
 };
 
-const FeatureText = ({ text, caption }) => {
+const FeatureText = ({ caption, children }) => {
   return (
-    <Stack direction="column">
-      <Typography variant="body2" color="text.secondary">
-        {text}
-      </Typography>
-      <Typography variant="caption" color="text.secondary">
-        {caption}
-      </Typography>
+    <Stack direction="column" spacing="0.5rem" className={style.FeatureText}>
+      {children}
+      <p className={style.FeatureTextCaption}>{caption}</p>
     </Stack>
   );
 };
 
+const Amenity = ({ icon, text }) => {
+  return (
+    <Stack direction="column" spacing="0.5rem" className={style.Amenity}>
+      {icon}
+      <p>{text}</p>
+    </Stack>
+  );
+};
 export function PromotedListingCard() {
   const [_isDialogOpen, setIsDialogOpen] = useState(false);
   const [_isMessageBoxOpen, setIsMessageBoxOpen] = useState(false);
@@ -196,13 +203,73 @@ export function PromotedListingCard() {
   };
 
   return (
-    <Stack fullWidth className={style.ListingCardContainer}>
-      <Stack>This property has been verified by Aaqaraty team</Stack>
-      <Slideshow images={mockedListing.images} />
-      <p>{mockedListing.location_name}</p>
-      <Stack>
-        <FeatureText text="400m2" caption="SIZE" />
+    <Stack direction="column" className={style.ListingCardContainer}>
+      <Stack
+        fullWidth
+        direction="row"
+        justifyContent="center"
+        alignItems="center"
+        spacing="1rem"
+      >
+        <BsPatchCheckFill color="#b0882f" />
+        <p>This property has been verified by Aaqaraty team</p>
       </Stack>
+      <Stack fullWidth justifyContent="center" direction="column">
+        <Slideshow images={mockedListing.images} />
+
+        <Stack direction="column" width="80%">
+          <Stack spacing="1rem" className={style.Location}>
+            <BsGeoAltFill />
+            <p>{mockedListing.location_name}</p>
+          </Stack>
+          <Stack fullWidth justifyContent="space-between">
+            <FeatureText caption="Size">
+              <p className={style.FeatureTextInformation}>
+                {mockedListing.size} m<sup>2</sup>
+              </p>
+            </FeatureText>
+            <FeatureText caption="Property Type">
+              <p className={style.FeatureTextInformation}>
+                {mockedListing.propertyType}
+              </p>
+            </FeatureText>
+            <FeatureText caption="Price">
+              <p className={style.FeatureTextInformation}>
+                {mockedListing.price}
+              </p>
+            </FeatureText>
+          </Stack>
+        </Stack>
+      </Stack>
+      <h3 className={style.AmenitiesText}>Amenities</h3>
+      <Stack
+        fullWidth
+        justifyContent="space-around"
+        className={style.Amenities}
+      >
+        <Amenity
+          icon={<MdStream style={{ color: "black", fontSize: "40px" }} />}
+          text="Sauna"
+        />
+        <Amenity
+          icon={<MdBalcony style={{ color: "black", fontSize: "40px" }} />}
+          text="Balcony"
+        />
+        <Amenity
+          icon={<MdPets style={{ color: "black", fontSize: "40px" }} />}
+          text="Pets Allowed"
+        />
+        <Amenity
+          icon={
+            <MdFitnessCenter style={{ color: "black", fontSize: "40px" }} />
+          }
+          text="FitnessCenter"
+        />
+      </Stack>
+      <Button onClick={connectWithBrokerAction} className={style.ChatButton}>
+        <Chat />
+        {chatButtontext}
+      </Button>
     </Stack>
   );
 }

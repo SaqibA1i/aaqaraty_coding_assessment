@@ -1,3 +1,65 @@
 .ListingCardContainer {
-  max-height: 100px;
+  color: black;
+  /* max-height: 500px; */
+  padding: 1rem 2rem;
+  max-width: 700px;
+  padding:2rem 3rem;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.Location {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 700;
+  align-self: flex-start;
+  text-transform: uppercase;
+}
+
+.FeatureText {
+  color: black;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.FeatureTextCaption {
+  color: #b0882f;
+  font-size: 0.9rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.FeatureTextInformation {
+  margin: 0px;
+}
+
+.AmenitiesText {
+  align-self: flex-start;
+  color: #b0882f;
+}
+.Amenities{
+  border: solid 3px #b0882f;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.Amenity p{
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.ChatButton{
+  color: #b0882f !important;
+  border: 2px solid #b0882f !important;
+  margin-top: 2rem;
+  padding: 0.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+}
+
+.SlideShowCaption{
+  width: 80%;
 }

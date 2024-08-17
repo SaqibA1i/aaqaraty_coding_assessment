@@ -1,4 +1,3 @@
-import "./App.css";
 import PromotedListingCard from "./components/PromotedListingCard";
 import Wrapper from "./wrappers";
 

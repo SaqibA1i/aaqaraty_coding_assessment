@@ -1,3 +1,10 @@
 .Stack {
-  background: #e8dfcaed;
+  font-family:Arial, Helvetica, sans-serif;
+  background: #e8dfca;
+  display: flex;
+  
+}
+
+.StackFullWidth{
+  width: 100%;
 }

@@ -2254,11 +2254,11 @@ input:-internal-autofill-selected {
   border-radius: 10px !important;
 } */
 
-@font-face {
+/* @font-face {
   font-family: "RighteousRegular";
   src: url("./fonts/Righteous/NotoSansVithkuqi-VariableFont_wght.ttf")
     format("truetype");
-}
+} */
 
 .auth-form-container {
   margin: 0 auto;

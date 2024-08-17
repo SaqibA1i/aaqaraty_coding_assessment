@@ -6,8 +6,9 @@ const Stack = ({
   justifyContent = "center",
   alignItems = "center",
   wrap = "nowrap",
-  spacing = "none",
+  spacing = "1rem",
   fullWidth = false,
+  width,
   children,
   className,
 }) => {
@@ -17,7 +18,21 @@ const Stack = ({
     fullWidth && style.StackFullWidth
   );
 
-  return <div className={classes}>{children}</div>;
+  return (
+    <div
+      className={classes}
+      style={{
+        flexDirection: direction,
+        justifyContent: justifyContent,
+        alignItems: alignItems,
+        flexWrap: wrap,
+        gap: spacing,
+        width: fullWidth ? "100%" : width ?? "auto",
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default Stack;
